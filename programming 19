@@ -1,0 +1,14 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ofstream outFile;
+    string filename;
+
+    cout << "Enter the filename to open for writing: ";
+    getline(cin, filename);
+
+    // Open file for writing
+    outFile.open

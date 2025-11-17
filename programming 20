@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int factorial(int n) {
+    if (n < 0) {
+        throw "Error: Negative number entered.";
+    }
+    if (n > 12) {
+        throw n;  // Throw integer if number is too large
+    }
+    int result = 1;
+    for (int i = 1; i <= n; ++i) {
+        result *= i;
+    }
+    return result;
+}
+
+int main() {
+    int number;
+    cout << "Enter a number to find factorial: ";
+    cin >> number;
+
+    try {
+        int fact = factorial(number);
+        cout << "Factorial of " << number << " is " << fact << endl;
+    }
+    catch (const char* msg) {  // Catch string exceptions
+        cout << msg << endl;
+    }
+    catch (int n) {  // Catch integer exceptions
+        cout << "Error: Number " << n << " is too large to calculate factorial safely." << endl;
+    }
+    catch (...) {  // Catch all other exceptions
+        cout << "An unknown error occurred." << endl;
+    }
+
+    return 0;
+}

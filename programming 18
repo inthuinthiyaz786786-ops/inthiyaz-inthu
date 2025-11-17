@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class Parent {
+public:
+    virtual void display() {  // virtual function for overriding
+        cout << "Parent class display function" << endl;
+    }
+};
+
+class Child : public Parent {
+public:
+    void display() override {  // overrides Parent's display
+        cout << "Child class display function" << endl;
+    }
+};
+
+int main() {
+    Parent* p;
+    Child c;
+
+    p = &c;  // Base class pointer points to derived class object
+
+    p->display();  // Calls Child's display() because of overriding
+
+    return 0;
+}

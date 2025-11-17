@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+// Base class
+class Student {
+public:
+    string name;
+    int rollNumber;
+
+    void getBasicInfo() {
+        cout << "Enter Student Name: ";
+        getline(cin, name);
+        cout << "Enter Roll Number: ";
+        cin >> rollNumber;
+        cin.ignore(); // Clear input buffer
+    }
+
+    void displayBasicInfo() {
+        cout << "Name: " << name << endl;
+        cout << "Roll Number: " << rollNumber << endl;
+    }
+};
+
+// Derived class
+class StudentDetails : public Student {
+public:
+    string course;
+
+    void getAdditionalInfo() {
+        cout << "Enter Course: ";
+        getline(cin, course);
+    }
+
+    void displayAllInfo() {
+        displayBasicInfo(); // Call base class function
+        cout << "Course: " << course << endl;
+    }
+};
+
+int main() {
+    StudentDetails sd;
+
+    // Input data
+    sd.getBasicInfo();
+    sd.getAdditionalInfo();
+
+    // Display data
+    cout << "\nStudent Details:\n";
+    sd.displayAllInfo();
+
+    return 0;
+}

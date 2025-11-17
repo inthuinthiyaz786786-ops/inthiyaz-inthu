@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+// Function to find area of square
+int area(int side) {
+    return side * side;
+}
+
+// Function to find area of rectangle
+int area(int length, int breadth) {
+    return length * breadth;
+}
+
+// Function to find area of circle
+float area(float radius) {
+    return 3.14f * radius * radius;
+}
+
+int main() {
+    int side, length, breadth;
+    float radius;
+
+    cout << "Enter side of square: ";
+    cin >> side;
+
+    cout << "Enter length and breadth of rectangle: ";
+    cin >> length >> breadth;
+
+    cout << "Enter radius of circle: ";
+    cin >> radius;
+
+    cout << "Area of square: " << area(side) << endl;
+    cout << "Area of rectangle: " << area(length, breadth) << endl;
+    cout << "Area of circle: " << area(radius) << endl;
+
+    return 0;
+}

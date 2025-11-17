@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+class Numbers {
+private:
+    int start, end;
+public:
+    void getRange() {
+        cout << "Enter start of range: ";
+        cin >> start;
+        cout << "Enter end of range: ";
+        cin >> end;
+    }
+    friend void findSumAndCount(Numbers);
+};
+
+void findSumAndCount(Numbers obj) {
+    int sum = 0, count = 0;
+    for (int i = obj.start; i <= obj.end; ++i) {
+        if (i % 9 == 0) {
+            sum += i;
+            count++;
+        }
+    }
+    cout << "Count of numbers divisible by 9: " << count << endl;
+    cout << "Sum of numbers divisible by 9: " << sum << endl;
+}
+
+int main() {
+    Numbers num;
+    num.getRange();
+    findSumAndCount(num);
+    return 0;
+}

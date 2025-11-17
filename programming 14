@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+class Counter {
+private:
+    int count;
+
+public:
+    Counter() : count(0) {}  // default constructor
+
+    // Overload prefix ++ operator
+    void operator++() {
+        count++;
+    }
+
+    void display() {
+        cout << "Count: " << count << endl;
+    }
+};
+
+int main() {
+    Counter c;
+
+    cout << "Initial ";
+    c.display();
+
+    ++c;  // Calls overloaded operator++
+
+    cout << "After increment ";
+    c.display();
+
+    return 0;
+}

@@ -1,0 +1,79 @@
+#include <iostream>
+using namespace std;
+
+// Base class 1
+class Person {
+public:
+    string name;
+    void getName() {
+        cout << "Enter name: ";
+        getline(cin, name);
+    }
+    void displayName() {
+        cout << "Name: " << name << endl;
+    }
+};
+
+// Base class 2
+class Student {
+public:
+    int rollNumber;
+    void getRollNumber() {
+        cout << "Enter roll number: ";
+        cin >> rollNumber;
+        cin.ignore(); // Clear newline
+    }
+    void displayRollNumber() {
+        cout << "Roll Number: " << rollNumber << endl;
+    }
+};
+
+// Derived class from Person and Student: demonstrates multiple inheritance
+class Exam : public Person, public Student {
+public:
+    float marks;
+    void getMarks() {
+        cout << "Enter marks: ";
+        cin >> marks;
+        cin.ignore();
+    }
+    void displayMarks() {
+        cout << "Marks: " << marks << endl;
+    }
+};
+
+// Multilevel inheritance: Derived class from Exam
+class Results : public Exam {
+public:
+    string grade;
+    void calculateGrade() {
+        if (marks >= 90) grade = "A+";
+        else if (marks >= 80) grade = "A";
+        else if (marks >= 70) grade = "B+";
+        else if (marks >= 60) grade = "B";
+        else if (marks >= 50) grade = "C";
+        else grade = "Fail";
+    }
+    void displayResult() {
+        displayName();
+        displayRollNumber();
+        displayMarks();
+        cout << "Grade: " << grade << endl;
+    }
+};
+
+int main() {
+    Results res;
+
+    // Input details
+    res.getName();
+    res.getRollNumber();
+    res.getMarks();
+
+    // Compute grade and display all details
+    res.calculateGrade();
+    cout << "\nStudent Result:\n";
+    res.displayResult();
+
+    return 0;
+}

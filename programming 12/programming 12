@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+class Book {
+private:
+    string title;
+    string author;
+    int pages;
+
+public:
+    // Parameterized constructor
+    Book(string t, string a, int p) : title(t), author(a), pages(p) {}
+
+    // Copy constructor
+    Book(const Book &b) {
+        title = b.title;
+        author = b.author;
+        pages = b.pages;
+        cout << "Copy constructor called!" << endl;
+    }
+
+    void display() {
+        cout << "Title: " << title << endl;
+        cout << "Author: " << author << endl;
+        cout << "Pages: " << pages << endl;
+    }
+};
+
+int main() {
+    string title, author;
+    int pages;
+
+    cout << "Enter book title: ";
+    getline(cin, title);
+    cout << "Enter author name: ";
+    getline(cin, author);
+    cout << "Enter number of pages: ";
+    cin >> pages;
+
+    // Create original book object
+    Book book1(title, author, pages);
+
+    // Create copied book object using copy constructor
+    Book book2 = book1;
+
+    cout << "\nOriginal Book details:\n";
+    book1.display();
+
+    cout << "\nCopied Book details:\n";
+    book2.display();
+
+    return 0;
+}

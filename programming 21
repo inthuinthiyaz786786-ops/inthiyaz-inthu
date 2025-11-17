@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+template <typename T>
+class InputClass {
+private:
+    T data;
+public:
+    void getInput() {
+        cout << "Enter value: ";
+        cin >> data;
+    }
+    void display() {
+        cout << "Value entered is: " << data << endl;
+    }
+};
+
+int main() {
+    InputClass<int> obj1;
+    obj1.getInput();
+    obj1.display();
+
+    InputClass<float> obj2;
+    obj2.getInput();
+    obj2.display();
+
+    return 0;
+}

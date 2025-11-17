@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int rollNo;
+    string prn;
+
+public:
+    void getDetails() {
+        cout << "Enter name: ";
+        cin.ignore(); // To avoid input issues with getline
+        getline(cin, name);
+        cout << "Enter roll number: ";
+        cin >> rollNo;
+        cin.ignore();
+        cout << "Enter PRN: ";
+        getline(cin, prn);
+    }
+
+    void putDetails() {
+        cout << "Name: " << name << ", Roll Number: " << rollNo << ", PRN: " << prn << endl;
+    }
+};
+
+int main() {
+    int n;
+    cout << "Enter the number of students: ";
+    cin >> n;
+
+    Student students[n];
+
+    for (int i = 0; i < n; i++) {
+        cout << "\nEnter details for student " << i + 1 << ":\n";
+        students[i].getDetails();
+    }
+
+    cout << "\n--- Student Details ---\n";
+    for (int i = 0; i < n; i++) {
+        cout << "Student " << i + 1 << ": ";
+        students[i].putDetails();
+    }
+
+    return 0;
+}

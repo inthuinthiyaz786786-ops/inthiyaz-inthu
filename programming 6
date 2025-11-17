@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class Employee {
+private:
+    string name;
+    double basicSalary, hra, da, grossSalary;
+
+public:
+    void inputDetails() {
+        cout << "Enter employee name: ";
+        getline(cin, name);
+        cout << "Enter basic salary: ";
+        cin >> basicSalary;
+        // Typical values: HRA = 20% of basic, DA = 80% of basic
+        hra = 0.2 * basicSalary;
+        da = 0.8 * basicSalary;
+    }
+
+    void calculateGrossSalary() {
+        grossSalary = basicSalary + hra + da;
+    }
+
+    void displaySalarySlip() {
+        cout << "\nEmployee Name: " << name << endl;
+        cout << "Basic Salary: " << basicSalary << endl;
+        cout << "HRA (20%): " << hra << endl;
+        cout << "DA (80%): " << da << endl;
+        cout << "Gross Salary: " << grossSalary << endl;
+    }
+};
+
+int main() {
+    Employee emp;
+    emp.inputDetails();
+    emp.calculateGrossSalary();
+    emp.displaySalarySlip();
+    return 0;
+}
